@@ -1,32 +1,31 @@
 import 'package:flutter/material.dart';
 
-class HomeScreen extends StatelessWidget {
+class ProfileScreen extends StatelessWidget {
+  static const String name = "profile_screen";
 
-  static const String name = "home_screen";
-
-  const HomeScreen({super.key});
+  const ProfileScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Navigator(
       onGenerateRoute: (settings) {
         return MaterialPageRoute(
-          builder: (context) => const HomeContent(),
-        );  
+          builder: (context) => const ProfileContent(),
+        );
       },
     );
   }
 }
 
-class HomeContent extends StatelessWidget {
-  const HomeContent({super.key});
+class ProfileContent extends StatelessWidget {
+  const ProfileContent({super.key});
 
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
       body: Center(
         child: Text(
-          'Home Content',
+          'Profile Content',
           style: TextStyle(color: Colors.black, fontSize: 24.0),
         ),
       ),

@@ -22,11 +22,8 @@ class ProjectsContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Projects'),
-      ),
-      body: const Center(
+    return const Scaffold(
+      body: Center(
         child: Text(
           'Projects Content',
           style: TextStyle(color: Colors.black, fontSize: 24.0),

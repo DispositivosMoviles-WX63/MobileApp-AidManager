@@ -1,4 +1,6 @@
 import 'package:aidmanager_mobile/features/home/presentation/screens/home_screen.dart';
+import 'package:aidmanager_mobile/features/profile/presentation/screens/profile_screen.dart';
+import 'package:aidmanager_mobile/shared/widgets/side_menu.dart';
 import 'package:flutter/material.dart';
 import 'package:aidmanager_mobile/config/theme/app_theme.dart';
 import 'package:aidmanager_mobile/features/calendar/presentation/screens/calendar_screen.dart';
@@ -40,13 +42,57 @@ class _MainWrapperState extends State<MainWrapper> {
       case 4:
         context.go('/social');
         break;
+      case 5:
+        context.go('/profile');
+        break;
     }
   }
 
   @override
   Widget build(BuildContext context) {
+    final scaffoldKey = GlobalKey<ScaffoldState>();
+
     return Scaffold(
-      backgroundColor: Colors.white, // Color de fondo del Scaffold
+      key: scaffoldKey,
+      appBar: AppBar(
+        toolbarHeight: 70,
+        backgroundColor: CustomColors.darkGreen,
+        title: Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Builder(
+              builder: (context) {
+                return IconButton(
+                  icon: const Icon(
+                    Icons.menu,
+                    color: Colors.white,
+                    size: 32.0,
+                  ),
+                  onPressed: () {
+                    Scaffold.of(context).openDrawer();
+                  },
+                );
+              },
+            ),
+            const Text(
+              'AidManager',
+              style:
+                  TextStyle(fontSize: 24.0, color: CustomColors.lightGrey),
+            ),
+            IconButton(
+              icon: const Icon(
+                Icons.account_circle_sharp,
+                size: 32,
+                color: CustomColors.lightGrey,
+              ),
+              onPressed: () => _onIndexSelected(5),
+            ),
+          ],
+        ),
+        centerTitle: true,
+        automaticallyImplyLeading: false,
+      ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
@@ -58,7 +104,8 @@ class _MainWrapperState extends State<MainWrapper> {
                 ProjectsScreen(),
                 PostsScreen(),
                 CalendarScreen(),
-                SocialScreen()
+                SocialScreen(),
+                ProfileScreen()
               ],
             ),
           ),
@@ -67,6 +114,9 @@ class _MainWrapperState extends State<MainWrapper> {
             onIndexSelected: _onIndexSelected,
           ),
         ],
+      ),
+      drawer: SideMenu(
+        scaffoldKey: scaffoldKey,
       ),
     );
   }
@@ -88,8 +138,7 @@ class _AidNavigationBar extends StatelessWidget {
             color: Colors.black.withOpacity(0.12),
             spreadRadius: 2,
             blurRadius: 5,
-            offset: const Offset(
-                0, -3),
+            offset: const Offset(0, -3),
           ),
         ],
       ),
@@ -111,6 +160,7 @@ class _AidNavigationBar extends StatelessWidget {
 
   Widget _buildNavItem(IconData icon, String label, int itemIndex) {
     final isSelected = index == itemIndex;
+
     return GestureDetector(
       onTap: () => onIndexSelected(itemIndex),
       child: Column(
@@ -121,8 +171,7 @@ class _AidNavigationBar extends StatelessWidget {
             color: isSelected ? CustomColors.darkGreen : CustomColors.grey,
             size: 30.0,
           ),
-          const SizedBox(
-              height: 5.0),
+          const SizedBox(height: 5.0),
           Text(
             label,
             style: TextStyle(

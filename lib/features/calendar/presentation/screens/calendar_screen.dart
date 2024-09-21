@@ -22,11 +22,8 @@ class CalendarContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Calendar'),
-      ),
-      body: const Center(
+    return const Scaffold(
+      body: Center(
         child: Text(
           'Calendar Content',
           style: TextStyle(color: Colors.black, fontSize: 24.0),

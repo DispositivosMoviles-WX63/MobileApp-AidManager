@@ -22,11 +22,8 @@ class SocialContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Social'),
-      ),
-      body: const Center(
+    return const Scaffold(
+      body: Center(
         child: Text(
           'Social Content',
           style: TextStyle(color: Colors.black, fontSize: 24.0),

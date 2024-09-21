@@ -22,11 +22,8 @@ class PostsContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Posts'),
-      ),
-      body: const Center(
+    return const Scaffold(
+      body: Center(
         child: Text(
           'Posts Content',
           style: TextStyle(color: Colors.black, fontSize: 24.0),

@@ -3,6 +3,7 @@ import 'package:aidmanager_mobile/features/auth/presentation/screens/register_sc
 import 'package:aidmanager_mobile/features/calendar/presentation/screens/calendar_screen.dart';
 import 'package:aidmanager_mobile/features/home/presentation/screens/home_screen.dart';
 import 'package:aidmanager_mobile/features/posts/presentation/screens/posts_screen.dart';
+import 'package:aidmanager_mobile/features/profile/presentation/screens/profile_screen.dart';
 import 'package:aidmanager_mobile/features/projects/presentation/screens/projects_screen.dart';
 import 'package:aidmanager_mobile/features/social/presentation/screens/social_screen.dart';
 import 'package:aidmanager_mobile/shared/main_wrapper.dart';
@@ -50,6 +51,11 @@ final appRouter = GoRouter(
           path: '/posts',
           name: PostsScreen.name,
           builder: (context, state) => const PostsScreen(),
+        ),
+        GoRoute(
+          path: '/profile',
+          name: ProfileScreen.name,
+          builder: (context, state) => const ProfileScreen(),
         ),
       ],
     ),
