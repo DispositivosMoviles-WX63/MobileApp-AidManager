@@ -35,7 +35,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
     final password = _passwordController.text;
     final passwordConfirm = _passwordConfirmController.text;
 
-    if (firstName.isEmpty ||
+    /* if (firstName.isEmpty ||
         lastName.isEmpty ||
         email.isEmpty ||
         password.isEmpty ||
@@ -59,7 +59,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
           });
 
       return;
-    }
+    } */
 
     // navegar a la pantalla de tutorial si se ha completado los filtros :p
     isTeamSelected
